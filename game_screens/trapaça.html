@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo minado - Trapaça</title>
+    <link rel="stylesheet" href="./assets/css/styles_10x10.css">
+</head>
+<body>
+    <div class="title">
+        <h1>Campo minado</h1>
+    </div>
+
+<div class="components">
+    <div class="game-grid">
+        <script type="text/javascript">
+            var i;
+            for (i = 0; i < 100; i++) {
+                if (i == 12 ||
+                    i == 13 ||
+                    i == 29 ||
+                    i == 53 ||
+                    i == 98 ||
+                    i == 70 ||
+                    i == 45 ||
+                    i == 2  ||
+                    i == 23 ||
+                    i == 31 ||
+                    i == 49 ||
+                    i == 83
+                )
+                {
+                    document.write("<div class=\"game-block\"><img src =\"./assets/imgs/bomba.png\" width=\"40px\" height=\"40px\"></div>");
+                    continue;
+                }
+                document.write("<div class=\"game-block\"></div>");
+            }
+        </script>
+    </div>
+
+    <div class="settings">
+        <div>
+            <h2>Tempo </h2>
+            <p>-00:10</p>
+        </div>
+        <div class="game-size">
+            <h2>Tamanho</h2>
+            <form action="">
+                <select style="font-size: 0.8em;"name="tamanho" id="">Selecionar
+                    <option selected="selected" value="10x10">10x10</option>
+                    <option value="15x15">15x15</option>
+                    <option value="20x20">20x20</option>
+                </select>
+                <a href="">Iniciar</a>
+            </form>
+        </div>
+        <div class="game-mode">
+            <h2>Modos</h2>
+            <a href="/Projeto - Prog Web/game_screens/initial_10x10.html">Normal</a>
+            <a style="color: white; background-color: black;" href="">Trapaça</a>
+            <a href="/Projeto - Prog Web/game_screens/rivotril.html">Rivotril</a>
+        </div>
+        <div class="history">
+            <h2>Histórico</h2>
+            <div><h6>Partidas jogadas:</h6>
+                <p>
+                    -
+                </p>
+            </div>
+            <div><h6>Melhor tempo:</h6>
+                <p>Normal: -</p>
+                <p>Trapaça: -</p>
+                <p>Rivotril: -</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

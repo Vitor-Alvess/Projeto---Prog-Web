@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo - minado</title>
+    <link rel="stylesheet" href="./assets/css/styles_20x20.css">
+</head>
+<body>
+    <div class="title">
+        <h1>Campo minado</h1>
+    </div>
+
+<div class="components">
+    <div class="game-grid">
+        <script type="text/javascript">
+            var i;
+            for (i = 0; i < 400; i++) {
+                document.write("<div class=\"game-block\"></div>");
+            }
+        </script>
+    </div>
+
+    <div class="settings">
+        <div>
+            <h2>Tempo </h2>
+            <p>00:00</p>
+        </div>
+        <div class="game-size">
+            <h2>Tamanho</h2>
+            <form action="">
+                <select style="font-size: 0.8em;"name="tamanho" id="">Selecionar
+                    <option value="10x10">10x10</option>
+                    <option value="15x15">15x15</option>
+                    <option selected="selected" value="20x20">20x20</option>
+                </select>
+                <a href="">Iniciar</a>
+            </form>
+        </div>
+        <div class="game-mode">
+            <h2>Modos</h2>
+            <a style="color: white; background-color: black;" href="">Normal</a>
+            <a href="/Projeto - Prog Web/game_screens/trapaça.html">Trapaça</a>
+            <a href="/Projeto - Prog Web/game_screens/rivotril.html">Rivotril</a>
+        </div>
+        <div class="history">
+            <h2>Histórico</h2>
+            <div><h6>Partidas jogadas:</h6>
+                <p>
+                    -
+                </p>
+            </div>
+            <div><h6>Melhor tempo:</h6>
+                <p>Normal: -</p>
+                <p>Trapaça: -</p>
+                <p>Rivotril: -</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
