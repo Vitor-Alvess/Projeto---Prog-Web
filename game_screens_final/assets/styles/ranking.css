@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('fundocolorido.png');
+    background-color: #dd9000;
+    background-size: 11em 22em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.title{
+    margin-left: 2%;
+    height: 100px;
+    width: 1000px;
+    background-color: antiquewhite;
+    align-content: center;
+}
+
+.title h1 {
+    font-size: 4em;
+    margin: 0 1em;
+}
+
+
+
+.components{
+    display: grid;
+    grid-template-columns: 850px 1fr;
+    column-gap: 0;
+}
+
+.components div:is(.game-grid, .settings){
+    box-shadow: 5px 5px 5px 5px #996300;
+    background-color: #FFA500;
+}
+
+.game-grid {
+    margin: 2% 3%;
+    height: 800px;
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-block {
+    height: 36px;
+    width: 36px;
+    border: 2px solid black;
+}
+
+.settings{
+    margin: 2.5% 6.5%;
+    height: 800px;
+    width: 400px;
+}
+
+
+.settings div {
+    margin: 0.5em;
+    font-weight: bold;
+}
+
+
+.settings .ranking h3 {
+    font-weight: bold;
+    border: 1px solid black;
+    box-shadow: 2px 2px black;
+    margin: 1.5em;
+    margin-bottom: 2.0em;
+    text-align: center;
+}
+
+
+.settings .ranking h3 img {
+    margin-left: 0.5em;
+    text-align: left;
+}
+
+
+.settings div a {
+    color: black;
+    border: 1px solid black;
+    font-size: 1em;
+    padding: 2px;
+    margin-right: 1.5em;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+
+.settings div a:hover {
+    color: white;
+    background-color: black;
+    text-decoration: underline;
+}

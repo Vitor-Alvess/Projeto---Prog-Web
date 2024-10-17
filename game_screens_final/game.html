@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Minado</title>
+    <script src="mineSweeper.js"></script>
+    <link rel="stylesheet" href="assets/styles/game.css">
+</head>
+<body>
+    <div class="title">
+        <h1>Campo Minado</h1>
+    </div>
+
+    <div class="components">
+        <div id="game-grid"></div>    
+        <div class="settings">
+            <div class="player">
+                <h2 style="font-size: 1.3em;">Jogador: </h2>
+                <p id="player"></p>
+            </div>
+            <div>
+                <h2>Tempo </h2>
+                <p  id="time">00:00</p>
+            </div>
+            <div class="board">
+                <h2>Tamanho</h2>
+                <form name="board-size" onsubmit="init(); return false">
+                    <select style="font-size: 0.8em;" name="index" id="">
+                        <option value="0" selected>10x10</option>
+                        <option value="1">15x15</option>
+                        <option value="2">20x20</option>
+                    </select>
+                    <input type="submit" value="Iniciar"/>
+                </form>
+            </div>
+            <div class="game-mode">
+                <h2>Modos</h2>
+                <form name="select-mode">
+                    <button class="normal" onclick="changeMode('normal'); return false;">Normal</button>
+                    <button class="trapaca" onclick="changeMode('trapaca'); return false;">Trapaça</button>
+                    <button class="rivotril" onclick="changeMode('rivotril'); return false;">Rivotril</button>
+                </form>
+            </div>
+            <div class="history">
+                <h2>Histórico</h2>
+                <div><h6>Partidas jogadas:</h6>
+                    <p id="games-played">
+                        -
+                    </p>
+                </div>
+                <div><h6>Melhor tempo:</h6>
+                    <p id="best" seconds="0" minutes="0">Normal -> -</p>
+                    <p id="best" seconds="0" minutes="0">Trapaça -> -</p>
+                    <p id="best" seconds="0" minutes="0">Rivotril -> -</p>
+                </div>
+            </div>
+            <div class="links">
+                <a href="ranking.html">
+                    <div class="ranking">
+                        <h6>Ranking</h6>
+                    </div>
+                </a>
+                <a href="alter_login.html">
+                    <div class="alter-login">
+                        <h6>Alterar dados</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

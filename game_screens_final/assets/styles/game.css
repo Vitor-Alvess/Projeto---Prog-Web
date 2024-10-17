@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('fundocolorido.png');
+    background-color: #dd9000;
+    background-size: 11em 22em;
+    font-family: 'Courier', Courier, monospace;
+}
+
+.title{
+    margin-left: 2%;
+    height: 100px;
+    width: 1000px;
+    background-color: antiquewhite;
+    align-content: center;
+}
+
+.title h1 {
+    font-size: 4em;
+    margin: 0 1em;
+}
+
+.components{
+    display: grid;
+    grid-template-columns: 850px 1fr;
+    column-gap: 0;
+}
+
+#game-grid {
+    margin: 10% 20%;
+    height: 0;
+    width: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-block {
+    height: 36px;
+    width: 36px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.game-block:hover {
+    background-color: #af7200;
+}
+
+.empty {
+    background-color: #fcda9c;
+}
+
+.empty:hover {
+    background-color: #fcda9c;
+}
+
+.settings{
+    margin: 4% 6.5%;
+    height: fit-content;
+    width: 400px;
+    box-shadow: 5px 5px 5px 5px #996300;
+    background-color: #FFA500;
+}
+
+
+.settings div {
+    margin: 0.3em;
+    font-weight: bold;
+}
+
+.settings div p {
+    font-size: 1.2em;
+}
+
+.settings div h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+}
+
+.settings .player {
+    display: flex;
+}
+
+.settings #player {
+    margin-left: 7px;
+}
+
+.settings .board input {
+    font-size: 1em;
+    background-color: #FFA500;
+    padding: 0.3em;
+    border-radius: 15px;
+}
+    
+.settings .board input:hover {
+    background-color: black;
+    color: white;
+    text-decoration: underline;
+}
+
+.settings .game-mode button {
+    font-size: 1em;
+    background-color: #FFA500;
+    color: black;
+    border: 1px solid black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.settings .game-mode button:hover {
+    color: white;
+    background-color: black;
+    text-decoration: underline;
+}
+
+.settings .game-mode .active {
+    color: white; 
+    background-color: black;
+}
+
+.settings .history {
+    margin-top: 3em;
+}
+
+.settings .history div {
+    font-weight: normal;
+    border-bottom: 2px solid black;
+}
+
+.settings .history div h6 {
+    font-size: 1.1em;
+    font-style: italic;       
+}
+
+.settings .history div p {
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+.settings .links a {
+    text-decoration: none;
+}
+
+.settings .links a div{
+    font-size: 2em;
+    border: 2px solid black;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.settings .links a div:hover {
+    text-decoration: underline;
+    background-color: black;
+    color: white;
+}
+
+.num1, .num2, .num3, .num4, .num5, .num6, .num7, .num8 {
+    background-color: #fcda9c;
+    align-content: center;
+}
+
+.num1:hover, .num2:hover, .num3:hover, .num4:hover, .num5:hover, .num6:hover, .num7:hover, .num8:hover {
+    background-color: #fcda9c;
+}
+
+.num1 {
+    color: blue;
+}
+
+.num2 {
+    color: green;
+}
+
+.num3 {
+    color: red;
+}
+
+.num4 {
+    color: maroon;
+}
+
+.num5 {
+    color: blueviolet;
+}
+
+.num6 {
+    color: darkgoldenrod;
+}
+
+.num7 {
+    color: orange;
+}
+
+.num8 {
+    color: tomato;
+}
