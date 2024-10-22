@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('fundocolorido.png');
+    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('../imgs/fundocolorido.png');
     background-color: #dd9000;
     background-size: 11em 22em;
     font-family: 'Courier', Courier, monospace;
