@@ -348,7 +348,10 @@ function checkFor_bomb(event) {
 
 /*------INICIA O JOGO COM TODAS AS FUNCIONALIDADES------*/
 function init() {
-    while (gameMode === null) return;
+    while (gameMode === null) {
+        alert("Escolha um modo de jogo!");
+        return;
+    }
     timeElement = document.getElementById('time');
     diff = document.forms["board-size"]["index"];
     board = document.getElementById("game-grid");

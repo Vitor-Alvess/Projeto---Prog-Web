@@ -1,25 +1,25 @@
 body {
-    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('fundocolorido.png');
+    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('../imgs/fundocolorido.png');
     background-color: #dd9000;
     background-size: 10em 20em;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
     align-items: center;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+
 
 .title {
     height: 100px;
-    width: 100%;
+    width: 92%;
     background-color: antiquewhite;
-    font-family: 'Fixedsys', sans-serif;
+    font-weight: bold;
     font-size: 40px;
     padding: 10px;
     text-align: center;
     color: black;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .components {
@@ -28,16 +28,11 @@ body {
     background-color: #FFA500;
     padding: 20px;
     max-width: 600px;
-    max-height: 668px;
+    max-height: 875px;
     margin-bottom: 1em;
     box-shadow: 5px 5px 5px 5px #996300;
 }
 
-.grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
 .container {
     display: flex;
@@ -46,16 +41,10 @@ body {
     align-items: center;
 }
 
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-}
-
-.item p {
-    margin: 0; 
-    font-family: 'Fixedsys', sans-serif;
+.item div p{
+    text-align: center; color: #FF0000;
+    background-color: #f793a0;
+    width: 100%;
 }
 
 .box {
@@ -66,15 +55,14 @@ body {
 }
 
 .paragraph-regular {
-    font-family: 'Fixedsys', sans-serif;
     font-size: 16px;
+    font-weight: bold;
     text-align: center;
     margin-top: 20px;
     color: black;
 }
 
-.login-box,
-.cadastro-box {
+.salvar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,32 +71,15 @@ body {
     height: 40px;
     border-radius: 4px;
     color: white;
-    font-family: 'Fixedsys', sans-serif;
     font-size: 16px;
+    margin-top: 1.5em;
 }
 
-.login-box a,
-.cadastro-box a {
+.salvar a {
     color: white;
     text-decoration: none;
 }
 
-.login-box a:hover,
-.cadastro-box a:hover {
+.salvar a:hover {
     color: lightgray;
-}
-
-.login-box a:active,
-.cadastro-box a:active {
-    color: darkgray;
-}
-
-.login-link,
-.cadastro-link {
-    color: blue;
-}
-
-.login-link:hover,
-.cadastro-link:hover {
-    color: darkblue;
 }
