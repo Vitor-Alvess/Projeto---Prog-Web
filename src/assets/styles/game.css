@@ -4,8 +4,7 @@
 }
 
 body {
-    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('fundocolorido.png');
-    background-color: #dd9000;
+    background-image: linear-gradient(0deg, #fbb420b3, #fbb420b3), url('../imgs/fundocolorido.png');
     background-size: 11em 22em;
     font-family: 'Courier', Courier, monospace;
 }
@@ -30,6 +29,7 @@ body {
 }
 
 #game-grid {
+    background-color: #FFA500;
     margin: 10% 20%;
     height: 0;
     width: 0;
