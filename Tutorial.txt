@@ -5,7 +5,7 @@ criar o banco de dados "campo minado" e as duas tabelas utilizadas
 dentro do sistema do xampp. Siga as instruções a seguir pra conseguir 
 fazer isso:
 
-1 - Na janela do xampp, selecione "shell";
+1 - Na janela do xampp, selecione "shell" com o módulo "MySql" já em andamento;
 2 - No prompt, digite "cd mysql/bin";
 3 - Dentro da pasta bin, digite "./mysql -u root -p";
 4 - No shell do SGBD aberto, digite "CREATE DATABASE campo_minado;";
