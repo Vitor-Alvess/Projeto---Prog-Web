@@ -21,13 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: game.html'); 
                 exit();
             } else {
-                echo "Senha inválida!";
+                echo "<script>";
+                echo "alert('Senha inválida!');  window.location.href='login.html'";
+                echo "</script>";;
             }
         } else {
-            echo "Usuário não encontrado!";
+            echo "<script>";
+            echo "alert('Usuário não encontrado!');  window.location.href='login.html'";
+            echo "</script>";
         }
     } catch (PDOException $e) {
-        die("Erro ao autenticar: " . $e->getMessage()); // Exibe erros de conexão com o banco de dados
+        die("Erro ao autenticar: " . $e->getMessage());
     }
 }
 ?>

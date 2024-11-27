@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tamanho_tabuleiro = $_POST['tamanho_tabuleiro'];
 
     if (empty($usuario) || empty($modo_jogo) || empty($tempo) || empty($tamanho_tabuleiro)) {
-        echo "Dados incompletos!";
+        echo "<script>";
+        echo "alert('Dados incompletos!'); window.location.href='ranking.html'";
+        echo "</script>";
         exit;
     }
 
@@ -16,7 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuarioCheck = $conn->query("SELECT id FROM usuarios WHERE usuario = '$usuario'");
 
     if ($usuarioCheck->num_rows === 0) {
-        echo "Erro: O usuário '$usuario' não foi encontrado.";
+        echo "<script>";
+        echo "alert('O usuário $usuario não foi encontrado'); window.location.href='ranking.html'";
+        echo "</script>";
         exit;
     }
     
@@ -28,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES ('$usuario_id', '$modo_jogo', '$tempo', '$tamanho_tabuleiro')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Registro salvo com sucesso!";
+        echo "<script>";
+        echo "alert('Registro salvo com sucesso!'); window.location.href='ranking.html'";
+        echo "</script>";
     } 
     else {
         echo "Erro ao salvar o ranking: " . $conn->error;

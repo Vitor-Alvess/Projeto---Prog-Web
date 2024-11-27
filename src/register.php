@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userExistente = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($userExistente) {
-        echo "Usuário, CPF ou e-mail já cadastrados!";
+        echo "<script>";
+        echo "alert('Usuário, CPF ou e-mail já cadastrados!'); window.location.href='register.html'";
+        echo "</script>";
     } 
     else {
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
