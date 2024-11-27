@@ -237,37 +237,83 @@ function clearBoard(r_cell, c_cell) {
 
 /*-----FIM DE JOGO------*/
 function endGame() {
-    
-    var cellsFlag = document.querySelectorAll('.flag');
-    var cellsOpened = document.querySelectorAll('.empty, .num1, .num2, .num3, .num4, .num5, .num6, .num7, .num8');
-    
-    var i, correct_flags = 0;
-    var r_cell, c_cell;
-    for (i = 0; i < cellsFlag.length; i++) {
-        r_cell = parseInt(cellsFlag[i].getAttribute('row-index'));
-        c_cell = parseInt(cellsFlag[i].getAttribute('column-index'));
-        if (matrix[r_cell][c_cell] === -1) correct_flags++;
-    }
-    
-    /*------------ DEBUGGING ---------------------
-    console.log(`blocos abertos: ${cellsOpened.length}`);
-    console.log(`bandeiras certas: ${correct_flags}`);
-    console.log(`blocos disponíveis: ${rows * columns - bombs}`);
+    console.log("endGame foi chamada");
 
-    console.log(`Correct flag condition: ${correct_flags === bombs}`);
-    console.log(`Opened cells condition: ${cellsOpened.length === (rows * columns - bombs)}`);
-    --------------------------------------------*/
-    
-    if (correct_flags === rows * columns - cellsOpened.length)
-        {
+    // Seleciona bandeiras e células abertas
+    const cellsFlag = document.querySelectorAll('.flag');
+    const cellsOpened = document.querySelectorAll('.empty, .num1, .num2, .num3, .num4, .num5, .num6, .num7, .num8');
+
+    let correctFlags = 0;
+
+    // Conta as bandeiras corretas
+    cellsFlag.forEach(cell => {
+        const r = parseInt(cell.getAttribute('row-index'));
+        const c = parseInt(cell.getAttribute('column-index'));
+        if (matrix[r][c] === -1) correctFlags++;
+    });
+
+    console.log(`Bandeiras corretas: ${correctFlags}, Bombas: ${bombs}, Células abertas: ${cellsOpened.length}, Total esperado: ${rows * columns - bombs}`);
+
+    // Verificar condição de vitória
+    if (correctFlags === bombs && cellsOpened.length === rows * columns - bombs) {
+        console.log("Condição de vitória alcançada");
+
         gamesPlayed++;
-        alert('Você ganhou!');
         stopTimer();
         restartModes();
+
+        // Atualiza o contador de jogos jogados
         document.getElementById('games-played').innerHTML = gamesPlayed;
-        timeRecord();
+
+        // Solicitar o nome do jogador
+        const usuario = prompt("Digite seu nome de usuário para salvar no ranking:");
+
+        if (usuario) {
+            const tempoTotal = minutes * 60 + seconds; // Tempo total em segundos
+            console.log(`Usuário: ${usuario}, Tempo total: ${tempoTotal}s`);
+            
+            // Salvar o ranking enviando o nome do usuário
+            salvarRankingPorUsuario(usuario, gameMode, tempoTotal, `${rows}x${columns}`);
+        } else {
+            console.log("Nome de usuário não fornecido. O resultado não será salvo.");
+        }
+    } else {
+        console.log("Condição de vitória não foi alcançada.");
     }
 }
+
+/*---------------------------------------------*/
+
+/*------------SALVA RANKING POR USUARIO--------------*/
+
+function salvarRankingPorUsuario(usuario, modo, tempo, tamanho) {
+    const data = new URLSearchParams();
+    data.append("usuario", usuario); // Nome do usuário
+    data.append("modo_jogo", modo); // Modo de jogo
+    data.append("tempo", tempo); // Tempo total em segundos
+    data.append("tamanho_tabuleiro", tamanho); // Ex.: '10x10'
+
+    fetch("salvar_ranking.php", {
+        method: "POST",
+        body: data,
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log("Resposta do servidor:", result);
+        if (result.includes("sucesso")) {
+            alert("Resultado salvo no ranking com sucesso!");
+        } else {
+            alert(result); // Mostra a mensagem de erro do servidor
+        }
+    })
+    .catch(error => {
+        console.error("Erro ao salvar no ranking:", error);
+        alert("Erro ao salvar o resultado no ranking. Tente novamente.");
+    });
+}
+
+
+
 /*---------------------------------------------*/
 
 /*------EXIBE AS BOMBAS NA TELA-------*/
@@ -525,5 +571,3 @@ function timeRecord () {
     }
 }
 /*------------------------------*/
-
-/*===============================*/

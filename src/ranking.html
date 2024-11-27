@@ -3,44 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campo - minado</title>
+    <title>Ranking</title>
     <link rel="stylesheet" href="assets/styles/ranking.css">
 </head>
 <body>
     <div class="title">
-        <h1>Campo Minado</h1>
+        <h1>Ranking</h1>
     </div>
 
-<div class="components">
-    <div class="game-grid">
-        Jogo
-    </div>
-
-    <div class="settings">
+    <div class="components">
         <div>
-            <h2><u>Ranking Global</u> 
-            <select style="font-size: 0.7em;" name="tamanho" id="Selecionar">
-                <option selected="selected" value="10x10">10x10</option>
+            <h2>Selecionar Tabuleiro</h2>
+            <select id="tamanho-tabuleiro" name="tamanho_tabuleiro">
+                <option value="10x10" selected>10x10</option>
                 <option value="15x15">15x15</option>
                 <option value="20x20">20x20</option>
-            </select></h2>
+            </select>
         </div>
-        <div class="ranking">
-            <h3><img src="assets/imgs/bandeiraouro.png" alt="bandeira" width="20">- Matheus Cirillo - 2:10</h3>
-            <h3><img src="assets/imgs/bandeiraprata.png" alt="bandeira" width="20">- Vitor Alves - 2:59</h3>
-            <h3><img src="assets/imgs/bandeirabronze.png" alt="bandeira" width="20">- Bibi Fonfon - 3:30</h3>
-            <h3>- 4º Jogador - 0:00</h3>
-            <h3>- 5º Jogador - 0:00</h3>
-            <h3>- 6º Jogador - 0:00</h3>
-            <h3>- 7º Jogador - 0:00</h3>
-            <h3>- 8º Jogador - 0:00</h3>
-            <h3>- 9º Jogador - 0:00</h3>
-            <h3>- 10º Jogador - 0:00</h3>
-        </div>
-        <div class="links" style="text-align:center;"> <a href="">Iniciar</a> <a href="game.html">Voltar</a> </div>
-        
-    </div>
-</div>
 
+        <div id="ranking-list">
+            <h3>Carregando ranking...</h3>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tamanhoSelect = document.getElementById("tamanho-tabuleiro");
+        const rankingList = document.getElementById("ranking-list");
+
+        // Função para carregar o ranking
+        function carregarRanking() {
+            const tamanho = tamanhoSelect.value;
+
+            fetch(`listar_ranking.php?tamanho_tabuleiro=${tamanho}`)
+                .then(response => response.json())
+                .then(data => {
+                    rankingList.innerHTML = "<h3>Ranking Atual</h3>";
+                    if (data.length === 0) {
+                        rankingList.innerHTML += "<p>Nenhum dado disponível.</p>";
+                    } else {
+                        data.forEach((player, index) => {
+                            rankingList.innerHTML += `
+                                <p>${index + 1}º - ${player.nome} (${player.modo_jogo}) - 
+                                ${Math.floor(player.tempo / 60)}:${player.tempo % 60}s</p>
+                            `;
+                        });
+                    }
+                })
+                .catch(error => {
+                    rankingList.innerHTML = "<p>Erro ao carregar ranking.</p>";
+                    console.error('Erro:', error);
+                });
+        }
+
+        tamanhoSelect.addEventListener("change", carregarRanking);
+        carregarRanking(); // Carregar ao abrir a página
+    });
+    </script>
 </body>
 </html>

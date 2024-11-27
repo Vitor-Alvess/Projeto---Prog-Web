@@ -23,17 +23,31 @@ body {
     margin: 0 1em;
 }
 
-
-
-.components{
-    display: grid;
-    grid-template-columns: 850px 1fr;
-    column-gap: 0;
+.components {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas pequenas */
+    justify-content: space-between; /* Garante espaçamento uniforme */
+    align-items: flex-start; /* Alinha pelo topo */
+    gap: 5px; /* Espaço entre as colunas */
+    max-width: 100px; /* Largura máxima para centralizar o conteúdo */
+    margin: 27px; /* Centraliza horizontalmente */
 }
 
-.components div:is(.game-grid, .settings){
+/* Cada coluna do componente */
+.components > div {
+    flex: 1; /* Faz as colunas terem larguras iguais */
+    min-width: 500px; /* Define uma largura mínima */
+}
+
+/* Ajusta o contêiner de Ranking */
+#ranking-list {
+    margin-top: 0; /* Remove espaçamento extra */
+    padding: 10px;
+    border: 1px solid #ff8c09;
+    border-radius: 10px; /* Bordas arredondadas */
+    background-color: #FFA500; /* Fundo branco */
     box-shadow: 5px 5px 5px 5px #996300;
-    background-color: #FFA500;
+    
 }
 
 .game-grid {

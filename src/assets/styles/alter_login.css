@@ -26,8 +26,8 @@ body {
     display: grid;
     place-items: center;
     background-color: #FFA500;
-    padding: 20px;
-    max-width: 600px;
+    padding: 30px;
+    max-width: 200px;
     max-height: 875px;
     margin-bottom: 1em;
     box-shadow: 5px 5px 5px 5px #996300;
@@ -37,7 +37,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     align-items: center;
 }
 
@@ -62,8 +62,21 @@ body {
     color: black;
 }
 
+.submit-box button {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    width: 100%; /* Botão ocupa toda a largura do contêiner */
+    max-width: 300px; /* Largura máxima do botão */
+    margin: 10px auto; /* Centraliza o botão horizontalmente */
+    padding: 10px 20px; /* Espaçamento interno */
+    
+}
+
+
 .salvar {
     display: flex;
+    margin: 20px;
     justify-content: center;
     align-items: center;
     background-color: gray;

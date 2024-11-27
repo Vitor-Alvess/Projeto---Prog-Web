@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>login</title>
+    <title>Login</title>
     <meta name="description" content="Página de Login">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/styles/logincadastro.css">
@@ -14,28 +14,25 @@
     </div>
     <div class="components">
         <div class="grid">
-            <form action="" class="users-data">
+            <form action="login.php" method="POST" class="users-data">
                 <div class="container">
                     <div class="item">
                         <p>Usuário:</p>
-                        <input type="text" class="box">
+                        <input type="text" name="usuario" class="box" required>
                     </div>
                     <div class="item">
                         <p>Senha:</p>
-                        <input type="text" class="box">
+                        <input type="password" name="senha" class="box" required>
                     </div>
                     <div class="login-box">
-                        <a href="game.html">Logar</a>
+                        <button type="submit">Logar</button>
                     </div>
                     <p class="paragraph-regular">
-                        Caso ainda não seja cadastrado,  <a href="register.html" class="cadastro-link"> cadastre-se aqui</a>.
+                        Caso ainda não seja cadastrado, <a href="register.html" class="cadastro-link">cadastre-se aqui</a>.
                     </p>
                 </div>
-                </p>
-            </div>
+            </form>
         </div>
     </div>
 </body>
 </html>
-
-

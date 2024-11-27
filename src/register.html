@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>cadastro</title>
-    <meta name="description" content="Página de Login">
+    <title>Cadastro</title>
+    <meta name="description" content="Página de Cadastro">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/styles/logincadastro.css">
 </head>
@@ -14,45 +14,47 @@
     </div>
     <div class="components">
         <div class="grid">
-            <div class="container">
-		 <p class="paragraph-regular">
-                    Após o cadastro, você será redirecionado para a página de login.
-                </p>
-		<div class="item">
-                    <p>Nome completo:</p>
-                    <input type="text" class="box">
+            <form action="register.php" method="POST" class="users-data">
+                <div class="container">
+                    <p class="paragraph-regular">
+                        Após o cadastro, você será redirecionado para a página de login.
+                    </p>
+                    <div class="item">
+                        <p>Nome completo:</p>
+                        <input type="text" name="nome_completo" class="box" required>
+                    </div>
+                    <div class="item">
+                        <p>Data de nascimento:</p>
+                        <input type="date" name="data_nascimento" class="box" required>
+                    </div>
+                    <div class="item">
+                        <p>CPF:</p>
+                        <input type="text" name="cpf" class="box" required>
+                    </div>
+                    <div class="item">
+                        <p>Telefone:</p>
+                        <input type="tel" name="telefone" class="box" required>
+                    </div>
+                    <div class="item">
+                        <p>E-mail:</p>
+                        <input type="email" name="email" class="box" required>
+                    </div>
+                    <div class="item">
+                        <p>Usuário:</p>
+                        <input type="text" name="usuario" class="box" required>
+                    </div>
+                    <div class="item">
+                        <p>Senha:</p>
+                        <input type="password" name="senha" class="box" required>
+                    </div>
+                    <div class="cadastro-box">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                    <p class="paragraph-regular">
+                        Caso se enganou e já tenha um cadastro, volte para a <a href="login.html" class="login-link">página de login</a>.
+                    </p>
                 </div>
-		<div class="item">
-                    <p>Data de nascimento:</p>
-                    <input type="text" class="box">
-                </div>
-		<div class="item">
-                    <p>CPF:</p>
-                    <input type="text" class="box">
-                </div>
-		<div class="item">
-                    <p>Telefone:</p>
-                    <input type="text" class="box">
-                </div>
-		<div class="item">
-                    <p>e-mail:</p>
-                    <input type="text" class="box">
-                </div>
-                <div class="item">
-                    <p>Usuário:</p>
-                    <input type="text" class="box">
-                </div>
-                <div class="item">
-                    <p>Senha:</p>
-                        <input type="text" class="box">
-                </div>
-                <div class="cadastro-box">
-                    <p><a href="login.html">Cadastrar</a></p>
-                </div>
-                 <p class="paragraph-regular">
-                    Caso se enganou e já tenha um cadastro, volte para a <a href="login.html" class="login-link"> página de login</a>.
-                </p>
-            </div>
+            </form>
         </div>
     </div>
 </body>
