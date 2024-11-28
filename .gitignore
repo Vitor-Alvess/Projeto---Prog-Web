@@ -1,5 +1,6 @@
 /.vscode
 *.zip
+*.xlsx
 
 # Dependências do Node.js (caso use pacotes via npm/yarn)
 node_modules/

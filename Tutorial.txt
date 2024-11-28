@@ -39,3 +39,5 @@ fazer isso:
 9 - Finalmente, feche o shell do Xampp e inicie os serviços de Apache e MySql;
 10 - Então, abra o navegador e digite "localhost/Projeto---Prog-web/src/login.html";
 11 - Se estiver tudo certo, você estará na página do login do nosso jogo e poderá logar e jogar sem problemas!
+
+Link do vídeo: 
