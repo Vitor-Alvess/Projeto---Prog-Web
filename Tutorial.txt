@@ -40,4 +40,4 @@ fazer isso:
 10 - Então, abra o navegador e digite "localhost/Projeto---Prog-web/src/login.html";
 11 - Se estiver tudo certo, você estará na página do login do nosso jogo e poderá logar e jogar sem problemas!
 
-Link do vídeo: 
+Link do vídeo: https://youtu.be/XjAeQ5XZnGs?si=dm9HP3Dp5AlhPN7a
