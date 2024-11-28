@@ -1,37 +1,35 @@
 <?php
-require 'config.php';
-session_start(); 
+session_start();
 
+$conn = new mysqli('localhost', 'root', '', 'campo_minado');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_POST['usuario']; 
-    $senha = $_POST['senha']; 
-
-    try {
-        $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([':usuario' => $usuario]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-       
-        if ($user) {
-            
-            if (password_verify($senha, $user['senha'])) {
-                $_SESSION['usuario'] = $user['usuario'];
-                header('Location: game.html'); 
-                exit();
-            } else {
-                echo "<script>";
-                echo "alert('Senha inválida!');  window.location.href='login.html'";
-                echo "</script>";;
-            }
-        } else {
-            echo "<script>";
-            echo "alert('Usuário não encontrado!');  window.location.href='login.html'";
-            echo "</script>";
-        }
-    } catch (PDOException $e) {
-        die("Erro ao autenticar: " . $e->getMessage());
-    }
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
 }
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$sql = "SELECT * FROM usuarios WHERE usuario = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    if (password_verify($password, $row['senha'])) {
+        $_SESSION['usuario'] = $username;
+        $_SESSION['id_usuario'] = $row['id'];
+        header("Location: game.php");
+        exit;
+    } else {
+        echo "Usuário ou senha incorretos.";
+    }
+} else {
+    echo "Usuário ou senha incorretos.";
+}
+
+$stmt->close();
+$conn->close();
 ?>

@@ -4,12 +4,12 @@ require 'config.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome_completo = $_POST['nome_completo'];
     $data_nascimento = $_POST['data_nascimento'];
-    $cpf = $_POST['cpf'];
+    $cpf = preg_replace('/\D/', '', $_POST['cpf']); // Remove qualquer caractere não numérico do CPF
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
- 
+
     $sqlCheckUser = "SELECT * FROM usuarios WHERE usuario = :usuario OR cpf = :cpf OR email = :email";
     $stmt = $pdo->prepare($sqlCheckUser);
     $stmt->execute([
@@ -20,14 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userExistente = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($userExistente) {
-        echo "<script>";
-        echo "alert('Usuário, CPF ou e-mail já cadastrados!'); window.location.href='register.html'";
-        echo "</script>";
-    } 
-    else {
+        echo "Usuário, CPF ou e-mail já cadastrados!";
+    } else {
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-       
         $sqlInsert = "INSERT INTO usuarios (nome_completo, data_nascimento, cpf, telefone, email, usuario, senha) 
                       VALUES (:nome_completo, :data_nascimento, :cpf, :telefone, :email, :usuario, :senha)";
         $stmt = $pdo->prepare($sqlInsert);
@@ -38,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':telefone' => $telefone,
             ':email' => $email,
             ':usuario' => $usuario,
-            ':senha' => $senhaCriptografada 
+            ':senha' => $senhaCriptografada
         ]);
 
         header("Location: login.html");
@@ -46,3 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
